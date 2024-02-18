@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skladová Správa</title>
+<link rel="stylesheet" type="text/css" href="sklad.css">
+</head>
+<body>
+<h1>Skladová Správa</h1>
+<div id="filters">
+    <label for="sortPrice">Filtrovat podle ceny:</label>
+    <select id="sortPrice">
+        <option value="asc">Od nejnižší po nejvyšší</option>
+        <option value="desc">Od nejvyšší po nejnižší</option>
+        <option value="none">Bez filtru</option>
+    </select>
+    <label for="sortQuantity">Filtrovat podle počtu kusů:</label>
+    <select id="sortQuantity">
+        <option value="asc">Od nejnižšího po nejvyšší</option>
+        <option value="desc">Od nejvyššího po nejnižší</option>
+        <option value="none">Bez filtru</option>
+    </select>
+    <button onclick="applyFilters()">Filtrovat</button>
+    <button onclick="resetFilters()">Resetovat Filtry</button>
+</div>
+<table id="stockTable">
+    <thead>
+        <tr>
+            <th>Název</th>
+            <th>Cena (Kč)</th>
+            <th>Počet Kusů</th>
+        </tr>
+    </thead>
+    <tbody id="stockBody"></tbody>
+</table>
+<div id="operations">
+    <label for="quantityThreshold">Zobrazit produkty s méně než:</label>
+    <input type="number" id="quantityThreshold">
+    <button onclick="showProductsBelowThreshold()">Zobrazit</button>
+    <button onclick="calculateTotalValue()">Vypočítat Celkovou Hodnotu</button>
+</div>
+<div id="updateProduct">
+    <label for="productNameToUpdate">Název Produktu:</label>
+    <input type="text" id="productNameToUpdate">
+    <label for="newQuantity">Nové Množství:</label>
+    <input type="number" id="newQuantity">
+    <button onclick="updateQuantity()">Aktualizovat Množství</button>
+</div>
+<script src="sklad.js"></script>
+</body>
+</html>
